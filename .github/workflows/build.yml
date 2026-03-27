@@ -19,15 +19,15 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install pandas==1.5.3 openpyxl==3.1.2
         pip install pyinstaller==5.13.0
     
-    - name: Build EXE
+    - name: Build EXE (onefile, no tkinter)
       run: |
-        pyinstaller --onedir --windowed --name "Excel分类导出工具" excel_splitter.py
+        pyinstaller --onefile --console --name "ExcelTool" excel_splitter.py
     
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Excel分类导出工具
-        path: dist/Excel分类导出工具
+        name: ExcelTool
+        path: dist/ExcelTool.exe

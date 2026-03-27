@@ -26,9 +26,8 @@ jobs:
       run: |
         pyinstaller --onefile --windowed --name "Excel分类导出工具" excel_splitter.py
     
-    - name: Create Release
-      uses: softprops/action-gh-release@v1
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
       with:
-        files: dist/Excel分类导出工具.exe
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: Excel分类导出工具
+        path: dist/Excel分类导出工具.exe

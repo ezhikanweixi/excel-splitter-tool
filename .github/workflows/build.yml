@@ -22,12 +22,12 @@ jobs:
         pip install -r requirements.txt
         pip install pyinstaller
     
-    - name: Build EXE
+    - name: Build EXE (onedir mode)
       run: |
-        pyinstaller --onefile --windowed --name "Excel分类导出工具" excel_splitter.py
+        pyinstaller --onedir --windowed --name "Excel分类导出工具" excel_splitter.py
     
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: Excel分类导出工具
-        path: dist/Excel分类导出工具.exe
+        path: dist/Excel分类导出工具

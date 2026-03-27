@@ -12,17 +12,17 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Set up Python
+    - name: Set up Python 3.8
       uses: actions/setup-python@v5
       with:
-        python-version: '3.11'
+        python-version: '3.8'
     
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-        pip install pyinstaller
+        pip install pyinstaller==5.13.0
     
-    - name: Build EXE (onedir mode)
+    - name: Build EXE
       run: |
         pyinstaller --onedir --windowed --name "Excel分类导出工具" excel_splitter.py
     
